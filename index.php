@@ -1,7 +1,8 @@
 <?php 
 require_once "verification/controllerUserData.php"; 
-session_start();
+
 ?>
+
 <?php 
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
