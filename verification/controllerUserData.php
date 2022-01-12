@@ -6,6 +6,8 @@ $username = "";
 $name = "";
 $surname = "";
 $errors = array();
+$img = "";
+$uniq_id_chat = "";
 
 //if user signup button
 if(isset($_POST['signup'])){
@@ -32,8 +34,10 @@ if(isset($_POST['signup'])){
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status = "notverified";
-        $insert_data = "INSERT INTO usertable (username, email, name, surname, password, code, status)
-                        values('$username', '$email', '$name', '$surname', '$encpass', '$code', '$status')";
+        $unique_id = rand(999999, 111111);
+        $status_chat = "Active Now";
+        $insert_data = "INSERT INTO usertable (username, email, name, surname, password, code, status, unique_id, status_chat, img)
+                        values('$username', '$email', '$name', '$surname', '$encpass', '$code', '$status', '$unique_id', '$status_chat', '$img')";
         $data_check = mysqli_query($con, $insert_data);
         if($data_check){
             $subject = "Email Verification Code";
@@ -87,17 +91,23 @@ if(isset($_POST['signup'])){
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
         $check_email = "SELECT * FROM usertable WHERE email = '$email'";
+        
         $res = mysqli_query($con, $check_email);
         if(mysqli_num_rows($res) > 0){
             $fetch = mysqli_fetch_assoc($res);
             $fetch_pass = $fetch['password'];
+           
             if(password_verify($password, $fetch_pass)){
                 $_SESSION['email'] = $email;
                 $status = $fetch['status'];
                 if($status == 'verified'){
+                
                   $_SESSION['email'] = $email;
                   $_SESSION['password'] = $password;
+                  $_SESSION['unique_id'] = $uniq_id_chat;
                     header('location: ../index.php');
+                    
+                
                 }else{
                     $info = "It's look like you haven't still verify your email - $email";
                     $_SESSION['info'] = $info;

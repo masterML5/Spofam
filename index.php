@@ -55,7 +55,7 @@ if($email != false && $password != false){
              <a href="verification/logout-user.php">Logout</a>
          </div>
     </div>
-
+    <a href="chatapp/chat.php">chat</a>
     </nav>
     <!-----------------MAIN--------------------->
 <main>
