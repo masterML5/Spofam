@@ -18,10 +18,10 @@ if(isset($_POST['signup'])){
     if($password !== $cpassword){
         $errors['password'] = "Confirm password not matched!";
     }
-    $email_check = "SELECT * FROM usertable WHERE email = '$email' ";
+    $email_check = "SELECT * FROM usertable WHERE email = '$email'";
     $res = mysqli_query($con, $email_check);
     if(mysqli_num_rows($res) > 0){
-        $errors['email'] = "Email or that you have entered is already exist!";
+        $errors['email'] = "Email that you have entered is already exist!";
     }
     $user_check = "SELECT * FROM usertable WHERE username = '$username' ";
     $res = mysqli_query($con, $user_check);
