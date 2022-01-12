@@ -90,6 +90,7 @@ if(isset($_POST['signup'])){
     if(isset($_POST['login'])){
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
+        $uniq_id_chat = mysqli_real_escape_string($con, $_POST['unique_id']);
         $check_email = "SELECT * FROM usertable WHERE email = '$email'";
         
         $res = mysqli_query($con, $check_email);
@@ -97,7 +98,7 @@ if(isset($_POST['signup'])){
             $fetch = mysqli_fetch_assoc($res);
             $fetch_pass = $fetch['password'];
            
-            if(password_verify($password, $fetch_pass)){
+            if(password_verify($password, $fetch_pass)){    
                 $_SESSION['email'] = $email;
                 $status = $fetch['status'];
                 if($status == 'verified'){
@@ -105,6 +106,7 @@ if(isset($_POST['signup'])){
                   $_SESSION['email'] = $email;
                   $_SESSION['password'] = $password;
                   $_SESSION['unique_id'] = $uniq_id_chat;
+                 
                     header('location: ../index.php');
                     
                 
