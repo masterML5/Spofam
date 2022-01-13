@@ -90,13 +90,14 @@ if(isset($_POST['signup'])){
     if(isset($_POST['login'])){
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
-        $uniq_id_chat = mysqli_real_escape_string($con, $_POST['unique_id']);
         $check_email = "SELECT * FROM usertable WHERE email = '$email'";
         
         $res = mysqli_query($con, $check_email);
         if(mysqli_num_rows($res) > 0){
             $fetch = mysqli_fetch_assoc($res);
             $fetch_pass = $fetch['password'];
+            $uniq_id_chat = $fetch['unique_id'];
+            var_dump($uniq_id_chat);
            
             if(password_verify($password, $fetch_pass)){    
                 $_SESSION['email'] = $email;
