@@ -97,7 +97,7 @@ if(isset($_POST['signup'])){
             $fetch = mysqli_fetch_assoc($res);
             $fetch_pass = $fetch['password'];
             $uniq_id_chat = $fetch['unique_id'];
-            var_dump($uniq_id_chat);
+        
            
             if(password_verify($password, $fetch_pass)){    
                 $_SESSION['email'] = $email;
