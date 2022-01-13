@@ -106,6 +106,12 @@ if(isset($_POST['signup'])){
                 
                   $_SESSION['email'] = $email;
                   $_SESSION['password'] = $password;
+                  $status_chat = "Active now";
+                  $sql2 = mysqli_query($con, "UPDATE usertable SET status_chat = '{$status_chat}' WHERE unique_id = '{$fetch['unique_id']}'");
+                  if($sql2){
+                      $_SESSION['unique_id'] = $fetch['unique_id'];
+                      echo "success";
+                  }
                   $_SESSION['unique_id'] = $uniq_id_chat;
                  
                     header('location: ../index.php');
