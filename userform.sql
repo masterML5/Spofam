@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Jan 26, 2022 at 02:29 PM
+=======
+-- Generation Time: Jan 13, 2022 at 02:06 PM
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -43,6 +47,7 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) V
 (2, 418572, 0, ']'),
 (3, 418572, 993193, 'dsfdfs'),
 (4, 418572, 993193, 'asdasda'),
+<<<<<<< HEAD
 (5, 418572, 993193, 'h'),
 (6, 418572, 993193, 'asdasdasd'),
 (7, 993193, 418572, 'fgg'),
@@ -93,6 +98,9 @@ INSERT INTO `rating_info` (`post_id`, `user_id`, `rating_action`, `comment_actio
 (1, 4, 'like', '', ''),
 (1, 5, 'like', 'yes', 'testeteteaedawdawdwadawdawdawawawdaw'),
 (2, 4, 'like', '', '');
+=======
+(5, 418572, 993193, 'h');
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 
 -- --------------------------------------------------------
 
@@ -120,10 +128,14 @@ CREATE TABLE `usertable` (
 
 INSERT INTO `usertable` (`id`, `username`, `email`, `name`, `surname`, `password`, `status`, `code`, `status_chat`, `img`, `unique_id`) VALUES
 (1, 'miki', 'miki@x.com', 'm', 'm', '$2y$10$ngAyLioFoAIGk0KVWl1fJeDcRt.cIAHq4iVpEaWnSBUpodV/5FyGe', 'verified', 0, 'Offline now', 'x.jpg', 418572),
+<<<<<<< HEAD
 (2, 'm', 'm@m.com', 'a', 'a', '$2y$10$KtzsTAKPQmNr4B4jFdxVCu5gLsuyycGZadRA8EqMpRD2qh6gw/Yqu', 'verified', 0, 'Active now', 'a.jpg', 993193),
 (3, 'test', 'test@t.com', 'test', 'test', '$2y$10$Sdl8b6IYIm4z5wGI2L6Jg.x97cRT/DyiCM5D0f1H46s/Ou6eJtBxe', 'verified', 0, 'Offline now', '2.png', 425503),
 (4, 'test2', 'test2@t.com', 'test2', 'test2', '$2y$10$Yym4AjbqyU8rI7LR2SRwxu8F6knuCepLZBOyvgQ5IsnrfsnSkzrt2', 'verified', 0, 'Offline now', '1.png', 433914),
 (5, 'test3', 'test3@t.com', 'test3', 'test3', '$2y$10$1HFyOdnWxyjgvKJYgZRgSeT10GBKnNLMVkeXNuPjddoir8Xylpy06', 'verified', 0, 'Offline now', 'profile.png', 163327);
+=======
+(2, 'm', 'm@m.com', 'a', 'a', '$2y$10$KtzsTAKPQmNr4B4jFdxVCu5gLsuyycGZadRA8EqMpRD2qh6gw/Yqu', 'verified', 0, 'Offline now', '', 993193);
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 
 --
 -- Indexes for dumped tables
@@ -136,6 +148,7 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`msg_id`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -148,6 +161,8 @@ ALTER TABLE `rating_info`
   ADD UNIQUE KEY `post_id` (`post_id`,`user_id`);
 
 --
+=======
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 -- Indexes for table `usertable`
 --
 ALTER TABLE `usertable`
@@ -161,6 +176,7 @@ ALTER TABLE `usertable`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
+<<<<<<< HEAD
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
@@ -168,12 +184,19 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 
 --
 -- AUTO_INCREMENT for table `usertable`
 --
 ALTER TABLE `usertable`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> cfa6cc9c7a26fb86999bd9c4cdca1bf869b5211b
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
