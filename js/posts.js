@@ -77,18 +77,8 @@ $('.comment-btn').on('click', function(){
    
 
  }); 
- var commentCout = 2;
- $('.view-comm').on('click', function(){
-    alert(commentCout);
-     commentCout = commentCout + 2;
-     
-    $.ajax({
-        url: 'index.php',
-        type: 'post',
-        data: {
-            commentCount: commentNewCount        }
-    });
+
 });
-});
+
 
 
