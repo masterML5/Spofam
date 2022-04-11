@@ -36,6 +36,7 @@ if(isset($_POST['signup'])){
         $status = "notverified";
         $unique_id = rand(999999, 111111);
         $status_chat = "Active Now";
+        $img = "profile.png";
         $insert_data = "INSERT INTO usertable (username, email, name, surname, password, code, status, unique_id, status_chat, img)
                         values('$username', '$email', '$name', '$surname', '$encpass', '$code', '$status', '$unique_id', '$status_chat', '$img')";
         $data_check = mysqli_query($con, $insert_data);
@@ -69,13 +70,16 @@ if(isset($_POST['signup'])){
             $fetch_data = mysqli_fetch_assoc($code_res);
             $fetch_code = $fetch_data['code'];
             $email = $fetch_data['email'];
+            $uniq_id_chat = $fetch_data['unique_id'];
             $code = 0;
             $status = 'verified';
-            $update_otp = "UPDATE usertable SET code = $code, status = '$status' WHERE code = $fetch_code";
+            $status_chat = "Active Now";
+            $update_otp = "UPDATE usertable SET code = $code, status = '$status', status_chat = '$status_chat' WHERE code = $fetch_code ";
             $update_res = mysqli_query($con, $update_otp);
             if($update_res){
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;
+                $_SESSION['unique_id'] = $uniq_id_chat;
                 header('location: ../index.php');
                 exit();
             }else{
@@ -106,6 +110,12 @@ if(isset($_POST['signup'])){
                 
                   $_SESSION['email'] = $email;
                   $_SESSION['password'] = $password;
+                  $status_chat = "Active now";
+                  $sql2 = mysqli_query($con, "UPDATE usertable SET status_chat = '{$status_chat}' WHERE unique_id = '{$fetch['unique_id']}'");
+                  if($sql2){
+                      $_SESSION['unique_id'] = $fetch['unique_id'];
+                      echo "success";
+                  }
                   $_SESSION['unique_id'] = $uniq_id_chat;
                  
                     header('location: ../index.php');
@@ -172,6 +182,8 @@ if(isset($_POST['signup'])){
             $errors['otp-error'] = "You've entered incorrect code!";
         }
     }
+   
+
 
     //if user click change password button
     if(isset($_POST['change-password'])){

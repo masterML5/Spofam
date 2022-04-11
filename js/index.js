@@ -1,25 +1,31 @@
 //sidebar
+function loadsite(){
+
 const menuItems = document.querySelectorAll('.menu-item');
-const messagesNotification = document.querySelector('#messages-notifications');
-const messages = document.querySelector('.messages');
-const message = messages.querySelectorAll('.message');
-const messageSearch = document.querySelector('#message-search');
-const theme = document.querySelector('#theme');
-const themeModal = document.querySelector('.customize-theme');
+
+
 const fontSize = document.querySelectorAll('.choose-size span')
 var root = document.querySelector(':root');
 const colorPalette = document.querySelectorAll('.choose-color span');
-const Bg1 = document.querySelector('.bg-1');
-const Bg2 = document.querySelector('.bg-2');
-const Bg3 = document.querySelector('.bg-3');
+const Bg1 = document.querySelectorAll('.bg-1');
+const Bg2 = document.querySelectorAll('.bg-2');
+const Bg3 = document.querySelectorAll('.bg-3');
+const theme = document.querySelector('#theme');
+const themeModal = document.querySelectorAll('.customize-theme');
+const CreatePost = document.querySelector('#create-post-hover')
 
 
 
 const changeActiveItem = () => {
     menuItems.forEach(item => {
         item.classList.remove('active');
+
     })
 }
+
+CreatePost.addEventListener('click', () => {
+    document.querySelector('#form-hover').style.border = "1px solid black";
+})
 
 menuItems.forEach(item => {
 item.addEventListener('click', () => {
@@ -33,53 +39,31 @@ item.addEventListener('click', () => {
         document.querySelector('.notifications-popup').
         style.display = 'block';
         document.querySelector('#notifications .notifications-count').style.display = 'none';
+       
     }
 
 })
 
 })
 
-//messages
-//search chat
-const searchMessage = () => {
-    const val = messageSearch.value.toLowerCase();
-    message.forEach(user => {
-        let name = user.querySelector('h5').textContent.toLowerCase();
-        if(name.indexOf(val) != -1){
-            user.style.display = 'flex';
-        } else{
-            user.style.display = 'none';
-        }
-    })
-}
-messageSearch.addEventListener('keyup', searchMessage);
 
-//highlist message
-messagesNotification.addEventListener('click', () => {
-    messages.style.boxShadow = '0 0 1rem var(--color-primary)';
-    messagesNotification.querySelector('.notifications-count').style.display = 'none';
-    setTimeout(() => {
-        messages.style.boxShadow = 'none';
-    },2000);
-    
-})
 
 //theme
 
 //open
-const openThemeModal = () => {
+var openThemeModal = () => {
     themeModal.style.display = 'grid';
 }
 
 //close
-const closeThemeModal = (e) => {
+var closeThemeModal = (e) => {
     if(e.target.classList.contains('customize-theme')){
         themeModal.style.display = 'none';
     }
 }
+
 themeModal.addEventListener('click', closeThemeModal);
 theme.addEventListener('click', openThemeModal);
-
 
 //fonts
 
@@ -210,3 +194,4 @@ Bg3.addEventListener('click', () => {
     Bg2.classList.remove('active');
     changeBG();
 })
+}
