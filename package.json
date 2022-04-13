@@ -1,0 +1,19 @@
+{
+  "name": "spofam_social_media",
+  "version": "1.0.1",
+  "description": "Social media for sportist",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masterML5/Spofam.git"
+  },
+  "author": "Milos Jelic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masterML5/Spofam/issues"
+  },
+  "homepage": "https://github.com/masterML5/Spofam#readme"
+}
